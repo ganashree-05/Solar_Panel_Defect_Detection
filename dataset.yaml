@@ -1,0 +1,24 @@
+# dataset.yaml  –  YOLO dataset configuration
+# Ultralytics convention:
+#   images live in  <root>/<split>/<class>/image.jpg
+#   labels live in  <root>/labels/<split>/<class>/image.txt
+#
+# The path below must be the ABSOLUTE path to the workspace root,
+# or a relative path from where you run the script.
+# We use "." so it resolves to the current working directory.
+
+path: .
+
+train: train
+val:   val
+test:  test
+
+nc: 6
+
+names:
+  0: Bird-drop
+  1: Clean
+  2: Dusty
+  3: Electrical-damage
+  4: Physical-Damage
+  5: Snow-Covered

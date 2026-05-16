@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SolarScan – Dashboard</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     APP SHELL
+═══════════════════════════════════════════════════════════ -->
+<div class="app">
+
+  <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-icon">
+        <svg viewBox="0 0 28 28" fill="none">
+          <rect x="1" y="7" width="26" height="17" rx="2.5" fill="white" opacity=".2"/>
+          <rect x="1" y="7" width="26" height="17" rx="2.5" stroke="white" stroke-width="1.8"/>
+          <line x1="1" y1="15.5" x2="27" y2="15.5" stroke="white" stroke-width="1.4"/>
+          <line x1="10" y1="7" x2="10" y2="24" stroke="white" stroke-width="1.4"/>
+          <line x1="19" y1="7" x2="19" y2="24" stroke="white" stroke-width="1.4"/>
+          <path d="M14 2v3M8 3.5l1.5 2.5M20 3.5l-1.5 2.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="sb-logo-text">Solar<b>Scan</b></span>
+    </div>
+
+    <nav class="sb-nav">
+      <div class="sb-section-label">MAIN</div>
+      <a href="#" class="sb-link active" data-page="dashboard">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/></svg>
+        Dashboard
+      </a>
+      <a href="#" class="sb-link" data-page="analyse">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"/><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z" clip-rule="evenodd"/></svg>
+        Analyse Panel
+      </a>
+      <a href="#" class="sb-link" data-page="results">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+        Results
+      </a>
+      <a href="#" class="sb-link" data-page="history">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+        History
+      </a>
+
+      <div class="sb-section-label" style="margin-top:16px">CLASSES</div>
+      <a href="#" class="sb-link" data-page="classes">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+        Defect Classes
+      </a>
+      <a href="#" class="sb-link" data-page="settings">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+        Settings
+      </a>
+    </nav>
+
+    <div class="sb-bottom">
+      <a href="#" class="sb-link">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+        Help
+      </a>
+      <a href="#" class="sb-link" id="logoutBtn" style="color:#EF4444">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/></svg>
+        Log out
+      </a>
+      <div class="sb-status" id="sbStatus">
+        <span class="sb-status-dot" id="sbDot"></span>
+        <span id="sbStatusText">Connecting…</span>
+      </div>    </div>
+  </aside>
+
+  <!-- ── MAIN ────────────────────────────────────────────── -->
+  <main class="main">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="topbar-title">Welcome back!</h1>
+        <p class="topbar-sub">Solar panel defect detection &amp; analysis dashboard</p>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" title="Search">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="18"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+        </button>
+        <button class="icon-btn notif-btn" title="Notifications">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="18"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+          <span class="notif-badge" id="notifBadge" style="display:none">1</span>
+        </button>
+        <div class="topbar-user">
+          <div class="user-avatar">
+            <svg viewBox="0 0 32 32" fill="none" width="32">
+              <circle cx="16" cy="16" r="16" fill="#7C3AED" opacity=".15"/>
+              <circle cx="16" cy="13" r="5" fill="#7C3AED"/>
+              <path d="M6 26c0-5.523 4.477-8 10-8s10 2.477 10 8" fill="#7C3AED"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">SolarScan</span>
+            <span class="user-role" id="gpuLabel">Loading…</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── PAGE: DASHBOARD ─────────────────────────────── -->
+    <div class="page active" id="page-dashboard">
+
+      <!-- Stat cards -->
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-label">Total Scanned</span>
+            <button class="stat-arrow" id="arrowTotal" title="View History">↗</button>
+          </div>
+          <div class="stat-big" id="statTotal">0</div>
+          <div class="stat-change positive" id="statTotalChange">— panels</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-label">Defects Found</span>
+            <button class="stat-arrow" id="arrowDefects" title="View History">↗</button>
+          </div>
+          <div class="stat-big" id="statDefects">0</div>
+          <div class="stat-change negative" id="statDefectsChange">— this session</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-label">Avg Damage</span>
+            <button class="stat-arrow" id="arrowAvgDmg" title="View Results">↗</button>
+          </div>
+          <div class="stat-big" id="statAvgDmg">0%</div>
+          <div class="stat-change" id="statAvgChange">— across scans</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-label">Critical Panels</span>
+            <button class="stat-arrow" id="arrowCritical" title="View History">↗</button>
+          </div>
+          <div class="stat-big" id="statCritical">0</div>
+          <div class="stat-change negative" id="statCriticalChange">— need attention</div>
+        </div>
+      </div>
+
+      <!-- Middle row: chart + donut -->
+      <div class="mid-row">
+
+        <!-- Damage distribution bar chart -->
+        <div class="card chart-card">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title">Damage Distribution</h3>
+              <p class="card-sub">Detections by class this session</p>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:#7C3AED"></span><span class="legend-lbl">Count</span>
+              <span class="legend-dot" style="background:#C4B5FD"></span><span class="legend-lbl">Avg %</span>
+            </div>
+          </div>
+          <div class="bar-chart-wrap">
+            <canvas id="barChart" height="180"></canvas>
+          </div>
+        </div>
+
+        <!-- Severity donut -->
+        <div class="card donut-card">
+          <div class="card-head">
+            <h3 class="card-title">Severity Split</h3>
+            <button class="stat-arrow" id="arrowDonut" title="View History">↗</button>
+          </div>
+          <div class="donut-wrap">
+            <canvas id="donutChart" width="160" height="160"></canvas>
+            <div class="donut-center">
+              <span class="donut-total" id="donutTotal">0</span>
+              <span class="donut-lbl">Total scans</span>
+            </div>
+          </div>
+          <ul class="donut-legend" id="donutLegend"></ul>
+        </div>
+
+      </div>
+
+      <!-- Recent scans table -->
+      <div class="card table-card">
+        <div class="card-head">
+          <h3 class="card-title">Recent Scans</h3>
+          <div class="card-head-right">
+            <button class="pill-btn" id="clearHistoryBtn">Clear</button>
+            <button class="pill-btn accent" id="goAnalyseBtn">+ New Scan</button>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>TIME</th><th>FILE</th><th>CLASS</th>
+                <th>CONFIDENCE</th><th>DAMAGE</th><th>SEVERITY</th>
+              </tr>
+            </thead>
+            <tbody id="historyTbody">
+              <tr class="empty-row"><td colspan="6">No scans yet — upload a panel image to get started</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /page-dashboard -->
+
+    <!-- ── PAGE: ANALYSE ───────────────────────────────── -->
+    <div class="page" id="page-analyse">
+      <div class="analyse-grid">
+
+        <!-- Upload panel -->
+        <div class="card upload-panel">
+          <div class="card-head">
+            <h3 class="card-title">Upload Panel Image</h3>
+          </div>
+          <div class="card-body">
+            <div class="dropzone" id="dropzone">
+              <input type="file" id="fileInput" accept="image/*" hidden/>
+              <div class="dz-icon">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <circle cx="32" cy="32" r="30" fill="#EDE9FE"/>
+                  <path d="M32 18v20M24 26l8-8 8 8" stroke="#7C3AED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20 46h24" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="dz-title">Drop image here</p>
+              <p class="dz-sub">or <span class="dz-link" id="browseBtn">browse files</span></p>
+              <p class="dz-hint">JPG · JPEG · PNG</p>
+            </div>
+
+            <div class="preview-area" id="previewArea" style="display:none">
+              <div class="preview-img-wrap">
+                <img id="previewImg" alt="Preview"/>
+                <button class="remove-btn" id="removeBtn">✕</button>
+              </div>
+              <div class="conf-row">
+                <label class="conf-label">Confidence Threshold</label>
+                <div class="slider-wrap">
+                  <input type="range" id="confSlider" min="5" max="95" value="25"/>
+                  <span id="confVal">25%</span>
+                </div>
+              </div>
+              <button class="btn-accent full-width" id="analyseBtn">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="18"><path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"/><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z" clip-rule="evenodd"/></svg>
+                Analyse Panel
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick stats sidebar -->
+        <div class="analyse-side">
+          <div class="card mini-card">
+            <div class="mini-icon purple-bg">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" clip-rule="evenodd"/></svg>
+            </div>
+            <div><p class="mini-label">Model</p><p class="mini-val">YOLOv8m</p></div>
+          </div>
+          <div class="card mini-card">
+            <div class="mini-icon green-bg">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+            </div>
+            <div><p class="mini-label">Device</p><p class="mini-val" id="deviceLabel">—</p></div>
+          </div>
+          <div class="card mini-card">
+            <div class="mini-icon orange-bg">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+            </div>
+            <div><p class="mini-label">Classes</p><p class="mini-val">6 defects</p></div>
+          </div>
+          <div class="card mini-card">
+            <div class="mini-icon blue-bg">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+            </div>
+            <div><p class="mini-label">Session Scans</p><p class="mini-val" id="sessionCount">0</p></div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /page-analyse -->
+
+    <!-- ── PAGE: RESULTS ───────────────────────────────── -->
+    <div class="page" id="page-results">
+      <div class="no-results" id="noResults">
+        <svg viewBox="0 0 64 64" fill="none" width="64">
+          <circle cx="32" cy="32" r="30" fill="#EDE9FE"/>
+          <path d="M22 32h20M32 22v20" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <p>No results yet</p>
+        <button class="btn-accent" id="goAnalyseBtn2">Analyse a Panel</button>
+      </div>
+      <div id="resultsContent" style="display:none">
+
+        <!-- Summary strip -->
+        <div class="summary-strip">
+          <div class="ss-item">
+            <span class="ss-label">Class</span>
+            <span class="ss-val" id="rClass">—</span>
+          </div>
+          <div class="ss-sep"></div>
+          <div class="ss-item">
+            <span class="ss-label">Damage</span>
+            <span class="ss-val damage-val" id="rDamage">—</span>
+          </div>
+          <div class="ss-sep"></div>
+          <div class="ss-item">
+            <span class="ss-label">Severity</span>
+            <span class="sev-badge" id="rSeverity">—</span>
+          </div>
+          <div class="ss-sep"></div>
+          <div class="ss-item">
+            <span class="ss-label">Detections</span>
+            <span class="ss-val" id="rCount">—</span>
+          </div>
+          <div class="ss-sep"></div>
+          <div class="ss-item">
+            <button class="btn-accent sm" id="newScanBtn">↺ New Scan</button>
+          </div>
+        </div>
+
+        <!-- Damage meter -->
+        <div class="card meter-card">
+          <div class="meter-head">
+            <span class="card-title">Damage Severity Meter</span>
+            <span class="meter-pct" id="meterPct">0%</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-gradient"></div>
+            <div class="meter-thumb" id="meterThumb"></div>
+          </div>
+          <div class="meter-labels">
+            <span class="ml green">No Damage</span>
+            <span class="ml yellow">Low</span>
+            <span class="ml orange">Moderate</span>
+            <span class="ml red">Critical</span>
+          </div>
+        </div>
+
+        <!-- Results grid -->
+        <div class="results-grid">
+          <div class="card">
+            <div class="card-head"><h3 class="card-title">Annotated Image</h3>
+              <a id="downloadBtn" class="pill-btn accent" download="solar_analysis.jpg">↓ Download</a>
+            </div>
+            <div class="card-body"><img id="resultImg" class="result-img" alt="Result"/></div>
+          </div>
+
+          <div class="card diag-card">
+            <div class="card-head"><h3 class="card-title">Diagnosis Report</h3></div>
+            <div class="card-body diag-body">
+              <div class="diag-block">
+                <div class="diag-block-title"><span class="diag-dot orange-dot"></span>What Happened</div>
+                <p class="diag-text" id="diagWhat">—</p>
+              </div>
+              <div class="diag-block">
+                <div class="diag-block-title"><span class="diag-dot red-dot"></span>Impact on Panel</div>
+                <ul class="impact-list" id="diagImpact"></ul>
+              </div>
+              <div class="diag-block suggest-block">
+                <div class="diag-block-title"><span class="diag-dot green-dot"></span>How to Improve</div>
+                <ol class="steps-list" id="diagSteps"></ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detection table -->
+        <div class="card">
+          <div class="card-head"><h3 class="card-title">Detection Details</h3></div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead><tr><th>#</th><th>GRID</th><th>CLASS</th><th>CONFIDENCE</th><th>DAMAGE %</th><th>SEVERITY</th><th>LOCATION</th></tr></thead>
+              <tbody id="detTbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Farm grid map (shown only for multi-panel images) -->
+        <div class="card" id="farmGridCard" style="display:none">
+          <div class="card-head">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="16" class="rcard-icon"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            <h3 class="card-title">Panel Grid Map</h3>
+            <span class="farm-stats" id="farmStats"></span>
+          </div>
+          <div class="card-body farm-grid-body">
+            <div class="farm-grid-left">
+              <p class="farm-grid-label">Grid Overview</p>
+              <img id="gridMapImg" class="grid-map-img" alt="Panel grid map"/>
+              <p class="farm-grid-hint">Green = OK &nbsp;|&nbsp; Coloured = Defect detected</p>
+            </div>
+            <div class="farm-grid-right" id="panelCropsWrap">
+              <p class="farm-grid-label">Affected Panels (Zoomed)</p>
+              <div class="panel-crops-grid" id="panelCropsGrid"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /page-results -->
+
+    <!-- ── PAGE: CLASSES ───────────────────────────────── -->
+    <div class="page" id="page-classes">
+      <div class="sec-head">
+        <h2>Defect Classes</h2>
+        <p>6 solar panel conditions the model can detect</p>
+      </div>
+      <div class="classes-grid" id="classesGrid"></div>
+    </div>
+
+    <!-- ── PAGE: HISTORY ──────────────────────────────── -->
+    <div class="page" id="page-history">
+      <div class="sec-head">
+        <h2>Scan History</h2>
+        <p>All scans from this session</p>
+      </div>
+      <div class="card">
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead><tr><th>TIME</th><th>FILE</th><th>CLASS</th><th>CONFIDENCE</th><th>DAMAGE</th><th>SEVERITY</th></tr></thead>
+            <tbody id="historyTbody2"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PAGE: SETTINGS ─────────────────────────────── -->
+    <div class="page" id="page-settings">
+      <div class="sec-head"><h2>Settings</h2><p>Model and detection configuration</p></div>
+      <div class="settings-grid">
+        <div class="card settings-card">
+          <div class="card-head"><h3 class="card-title">Model Info</h3></div>
+          <div class="card-body settings-body">
+            <div class="setting-row"><span>Model</span><span class="setting-val">YOLOv8m</span></div>
+            <div class="setting-row"><span>Backbone</span><span class="setting-val">CSPDarknet CNN</span></div>
+            <div class="setting-row"><span>Device</span><span class="setting-val" id="settingDevice">—</span></div>
+            <div class="setting-row"><span>GPU</span><span class="setting-val" id="settingGpu">—</span></div>
+            <div class="setting-row"><span>Classes</span><span class="setting-val">6</span></div>
+            <div class="setting-row"><span>Input Size</span><span class="setting-val">640 × 640</span></div>
+          </div>
+        </div>
+        <div class="card settings-card">
+          <div class="card-head"><h3 class="card-title">Detection Config</h3></div>
+          <div class="card-body settings-body">
+            <div class="setting-row">
+              <span>Default Confidence</span>
+              <div class="slider-wrap">
+                <input type="range" id="globalConf" min="5" max="95" value="25"/>
+                <span id="globalConfVal">25%</span>
+              </div>
+            </div>
+            <div class="setting-row"><span>Label Generation</span><span class="setting-val">GradCAM</span></div>
+            <div class="setting-row"><span>Augmentation</span><span class="setting-val">Mosaic + MixUp</span></div>
+            <div class="setting-row"><span>AMP</span><span class="setting-val">Enabled (FP16)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loadingOverlay" style="display:none">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <p class="loading-title">Analysing Panel…</p>
+    <p class="loading-sub">Running YOLOv8 on GPU</p>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
